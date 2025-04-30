@@ -3,11 +3,14 @@ services:
     name: keycloak-server
     env: docker
     plan: free
-    repo: https://github.com/wb63318/render_deploy.git
-    branch: main
-    rootDir: .
     dockerfilePath: ./Dockerfile
     autoDeploy: true
-    healthCheckPath: /
+    envVars:
+      - key: KEYCLOAK_ADMIN
+        value: will.andy
+      - key: KEYCLOAK_ADMIN_PASSWORD
+        value: newLogin
+      - key: KC_HOSTNAME
+        value: render-deploy-t8uv.onrender.com # Replace with your actual service name
     ports:
       - 8080
