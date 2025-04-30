@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: keycloak-server
+    env: docker
+    plan: free
+    repo: https://github.com/wb63318/render_deploy.git
+    branch: main
+    rootDir: .
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    healthCheckPath: /
+    ports:
+      - 8080
